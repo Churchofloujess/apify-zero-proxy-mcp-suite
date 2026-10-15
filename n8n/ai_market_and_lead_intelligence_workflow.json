@@ -1,0 +1,108 @@
+{
+  "name": "AI B2B Lead Enrichment & Real-Time Market Intelligence (Powered by Apify)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger-1",
+      "name": "When clicking 'Test workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/church_of_loujess~website-email-phone-finder/run-sync-get-dataset-items?memory=256",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.APIFY_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"urls\": [\"https://apify.com\", \"https://langchain.com\"],\n  \"maxPagesPerDomain\": 5\n}",
+        "options": {}
+      },
+      "id": "apify-website-leads-1",
+      "name": "Enrich Domain Emails, MX & Tech Stack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 180]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/church_of_loujess~google-news-scraper-fast/run-sync-get-dataset-items?memory=256",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.APIFY_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"queries\": [\"AI Agents B2B SaaS\"],\n  \"maxItemsPerQuery\": 5,\n  \"extractFullArticle\": true\n}",
+        "options": {}
+      },
+      "id": "apify-google-news-1",
+      "name": "Decode Google News + Full Article Markdown",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 340]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/church_of_loujess~yahoo-finance-scraper/run-sync-get-dataset-items?memory=256",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.APIFY_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"tickers\": [\"NVDA\", \"MSFT\", \"AAPL\"],\n  \"period\": \"1mo\",\n  \"interval\": \"1d\",\n  \"includeFinancials\": true,\n  \"includeAiSummary\": true\n}",
+        "options": {}
+      },
+      "id": "apify-yahoo-finance-1",
+      "name": "Yahoo Finance Real-Time Quotes & AI Tear-Sheet",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 500]
+    }
+  ],
+  "connections": {
+    "When clicking 'Test workflow'": {
+      "main": [
+        [
+          {
+            "node": "Enrich Domain Emails, MX & Tech Stack",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Decode Google News + Full Article Markdown",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Yahoo Finance Real-Time Quotes & AI Tear-Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

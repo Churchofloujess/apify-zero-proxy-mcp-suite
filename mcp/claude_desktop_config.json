@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "loujess-ai-research-and-leads": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@apify/actors-mcp-server",
+        "--actors",
+        "church_of_loujess/youtube-transcript-rag-scraper,church_of_loujess/youtube-channel-email-leads-scraper,church_of_loujess/google-trends-fast-scraper,church_of_loujess/google-news-scraper-fast,church_of_loujess/website-email-phone-finder,church_of_loujess/fast-website-content-crawler,church_of_loujess/yahoo-finance-scraper"
+      ],
+      "env": {
+        "APIFY_TOKEN": "YOUR_APIFY_API_TOKEN"
+      }
+    }
+  }
+}

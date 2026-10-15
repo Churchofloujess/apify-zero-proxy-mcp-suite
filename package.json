@@ -1,0 +1,24 @@
+{
+  "name": "apify-zero-proxy-mcp-suite",
+  "version": "1.0.0",
+  "description": "7 Zero-Proxy Apify Actors & MCP Tools for AI Agents, RAG Pipelines, Google News URL Decoding, Yahoo Finance Financials, YouTube Transcripts, Google Trends, and B2B Lead Enrichment.",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "apify",
+    "apify-actor",
+    "youtube-transcript-api",
+    "google-news-scraper",
+    "google-trends-api",
+    "yahoo-finance-api",
+    "b2b-lead-generation",
+    "rag-pipeline",
+    "n8n-workflow",
+    "langchain"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/church-of-loujess/apify-zero-proxy-mcp-suite"
+  },
+  "license": "MIT"
+}
