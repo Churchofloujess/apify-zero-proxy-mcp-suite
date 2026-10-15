@@ -1,6 +1,7 @@
 # Apify Zero-Proxy AI/RAG, Finance & B2B Lead Suite (7 MCP Tools)
 
 [![Apify Store Profile](https://img.shields.io/badge/Apify_Store-church__of__loujess-00C853?style=for-the-badge&logo=apify)](https://apify.com/church_of_loujess)
+[![Discord Community](https://img.shields.io/badge/Discord-Join_Support_%26_Updates-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/YPwHmPMEQ)
 [![MCP Ready](https://img.shields.io/badge/MCP_Server-Claude_%7C_Cursor_%7C_Windsurf-6366F1?style=for-the-badge)](./mcp/claude_desktop_config.json)
 [![n8n Workflow](https://img.shields.io/badge/n8n-Ready_Workflow_Template-FF6D5A?style=for-the-badge)](./n8n/ai_market_and_lead_intelligence_workflow.json)
 
@@ -96,8 +97,14 @@ for stock in resp_fin.json():
 
 Import [`n8n/ai_market_and_lead_intelligence_workflow.json`](./n8n/ai_market_and_lead_intelligence_workflow.json) directly into **n8n** to run automated B2B domain enrichment, decoded Google News monitoring, and Yahoo Finance tear-sheet generation on a schedule.
 
+## Community, Support & Feature Requests
+
+* **Join our Discord Server:** [https://discord.gg/YPwHmPMEQ](https://discord.gg/YPwHmPMEQ)
+* **Apify Store Profile:** [https://apify.com/church_of_loujess](https://apify.com/church_of_loujess)
+
 ---
 
 ## License
 
 MIT — Built by [@church_of_loujess on Apify](https://apify.com/church_of_loujess).
+
